@@ -1,0 +1,68 @@
+.flatpickr-month {
+    background-color: var(--primary) !important;
+    color: var(--secondary) !important;
+}
+
+.flatpickr-weekdays {
+    background-color: var(--primary) !important;
+    color: var(--secondary) !important;
+}
+
+.flatpickr-current-month {
+    background-color: var(--primary) !important;
+}
+
+.flatpickr-day {
+    color: var(--secondary) !important;
+}
+
+.flatpickr-disabled {
+    color: grey !important;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.selected:hover {
+    background-color: var(--primary) !important;
+    color: white !important;
+}
+
+.flatpickr-weekday {
+    background-color: var(--primary) !important;
+    color: white !important;
+}
+
+.flatpickr-monthDropdown-months {
+    background-color: var(--primary) !important;
+    color: var(--secondary) !important;
+}
+
+.flatpickr-monthDropdown-months:hover {
+    background-color: var(--secondary) !important;
+    color: white !important;
+}
+
+.numInputWrapper:hover {
+    background-color: var(--secondary) !important;
+    color: white !important;
+}
+
+.flatpickr-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.flatpickr-clear-button {
+    background-color: var(--primary) !important;
+    color: white !important;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 10px;
+    margin-top: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.flatpickr-clear-button:hover {
+    background-color: var(--secondary) !important;
+}
