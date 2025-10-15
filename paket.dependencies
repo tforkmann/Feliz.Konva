@@ -18,7 +18,6 @@ nuget Fake.Core.ReleaseNotes
 nuget Fake.Tools.Git
 nuget Fake.Core.UserInput
 nuget Feliz.QRCode
-nuget Feliz.CalendarPickr
 nuget Fable.I18Next
 
 group Package

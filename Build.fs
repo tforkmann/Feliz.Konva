@@ -29,11 +29,11 @@ let release = ReleaseNotes.load "RELEASE_NOTES.md"
 // The profile where the project is posted
 let gitHome = "https://github"
 // The name of the project on GitHub
-let gitName = "Feliz.CalendarPickr"
+let gitName = "Feliz.Skia"
 
 // The name of the project
 // (used by attributes in AssemblyInfo, name of a NuGet package and directory in 'src')
-let projectName = "Feliz.CalendarPickr"
+let projectName = "Feliz.Skia"
 
 let projectUrl = sprintf "%s/%s" gitHome gitName
 
@@ -164,7 +164,7 @@ Target.create "Pack" (fun _ ->
                   MSBuildParams = args
               }) projectPath
 
-    pack "Feliz.CalendarPickr"
+    pack "Feliz.Skia"
 )
 
 let getBuildParam = Environment.environVar
