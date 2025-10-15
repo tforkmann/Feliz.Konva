@@ -51,31 +51,22 @@ let view (model: Model) (dispatch: Msg -> unit) =
     Html.div [
         prop.style [ style.height 600; style.width 600 ]
         prop.children [
-            FlatPickr.flatPickr [
-                flatPickr.disabled false
-                flatPickr.value (DateOption.Date model.Date)
-                flatPickr.className "input"
-                flatPickr.title (Some "abc")
-                flatPickr.onChange (fun (dates, string, instance) ->
-                    if dates.Length > 0 then
-                        dispatch (SetStartDate dates[0].Date))
-                flatPickr.themeColors (primary = "#93C90E", secondary = "#000000")
-                flatPickr.showClearButton true
-                flatPickr.render (fun (args, ref) -> renderWithClearButton (args, ref))
-                flatPickr.options [
-                    option.allowInput true
-                    option.clearable true
-                    option.enableTime (format.IndexOfAny [| 'H'; 'h'; 'G'; 'i'; 'S'; 's'; 'K' |] <> -1)
-                    option.noCalendar (
-                        format.IndexOfAny [| 'd'; 'D'; 'l'; 'j'; 'J'; 'w'; 'W'; 'F'; 'm'; 'n'; 'M'; 'y'; 'Y' |] = -1
-                    )
-                    option.dateFormat format
-                    option.time_24hr (not (format.Contains "K"))
-                    option.locale "de"
-                    option.maxDate (DateOption.Date model.Date)
-                    option.disableMobile true
+            Skia.canvas [
+                Skia.rect [
+                    rect.x 100
+                    rect.y 100
+                    rect.width 200
+                    rect.height 200
+                    rect.color "red"
+                    rect.rx 20
+                    rect.ry 20
+
                 ]
             ]
-
+            // Circle.circle [
+            //     Circle.
+            // ]
         ]
+
+
     ]

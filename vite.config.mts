@@ -30,6 +30,11 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview  }) => {
             // // necessary for segment analytics lib to work
             "global": {},
         },
+        resolve: { alias: {} },
+        optimizeDeps: {
+        include: ["@shopify/react-native-skia"]
+        },
+        assetsInclude: ["**/*.wasm"],
         server: {
             port: port,
             host: "0.0.0.0",

@@ -10,11 +10,13 @@
     <Compile Include="Types.fs" />
     <Compile Include="Interop.fs" />
     <Compile Include="Options.fs" />
-    <Compile Include="FlatPickr.fs" />
+    <Compile Include="Rect.fs" />
+    <Compile Include="Canvas.fs" />
+    <Compile Include="Skia.fs" />
   </ItemGroup>
   <PropertyGroup>
     <NpmDependencies>
-      <NpmPackage Name="react-flatpickr" Version="gt 4.0.0 lt 4.9.9" ResolutionStrategy="Max" DevDependency="true" />
+      <NpmPackage Name="@shopify/react-native-skia" Version="gt 2.0.0 lt 2.9.9" ResolutionStrategy="Max" DevDependency="true" />
     </NpmDependencies>
   </PropertyGroup>
   <ItemGroup>

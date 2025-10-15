@@ -1,10 +1,21 @@
 namespace Feliz.Skia
 
-type IFlatPickrProp =
+type ISkiaProp =
     interface
     end
 
-type IFlatPickrStylesProp =
+type ICanvasProp =
+    interface
+    end
+
+type IRectProp =
+    interface
+    end
+
+type ICircleProp =
+    interface
+    end
+type ISkiaStylesProp =
     interface
     end
 
