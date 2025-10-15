@@ -42,8 +42,8 @@ let projectUrl = sprintf "%s/%s" gitHome gitName
 let summary = "Feliz React Binding for react-date-range"
 
 let copyright = "Copyright \169 2023"
-let iconUrl = "https://raw.githubusercontent.com/tforkmann/Feliz.FlatPickr/main/Feliz.FlatPickr_logo.png"
-let licenceUrl = "https://github.com/tforkmann/Feliz.FlatPickr/blob/main/LICENSE.md"
+let iconUrl = "https://raw.githubusercontent.com/tforkmann/Feliz.Skia/main/Feliz.Skia_logo.png"
+let licenceUrl = "https://github.com/tforkmann/Feliz.Skia/blob/main/LICENSE.md"
 let configuration = DotNet.BuildConfiguration.Release
 
 // Longer description of the project

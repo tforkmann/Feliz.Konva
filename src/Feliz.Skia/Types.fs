@@ -1,4 +1,4 @@
-namespace Feliz.FlatPickr
+namespace Feliz.Skia
 
 type IFlatPickrProp =
     interface

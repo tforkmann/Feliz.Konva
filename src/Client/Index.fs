@@ -2,7 +2,7 @@ module Index
 
 open Elmish
 open Feliz
-open Feliz.FlatPickr
+open Feliz.Skia
 open System
 open Fable.I18Next
 open Fable.Core.JsInterop

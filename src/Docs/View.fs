@@ -103,13 +103,13 @@ let private leftSide (p: Page) =
                     "inline-block text-3xl font-title px-5 py-5 font-bold"
                     [ Html.span [
                           color.textPrimary
-                          prop.text "Feliz.FlatPickr"
+                          prop.text "Feliz.Skia"
                       ]
                       Html.a [
-                          prop.href "https://www.nuget.org/packages/Feliz.FlatPickr"
+                          prop.href "https://www.nuget.org/packages/Feliz.Skia"
                           prop.children [
                               Html.img [
-                                  prop.src "https://img.shields.io/nuget/v/Feliz.FlatPickr.svg?style=flat-square"
+                                  prop.src "https://img.shields.io/nuget/v/Feliz.Skia.svg?style=flat-square"
                               ]
                           ]
                       ] ]

@@ -2,7 +2,7 @@ module Docs.Pages.FlatPickrView
 
 open Feliz
 open Feliz.Bulma
-open Feliz.FlatPickr
+open Feliz.Skia
 open Docs.SharedView
 open System
 open Feliz.UseElmish
