@@ -11,7 +11,9 @@
     <Compile Include="Interop.fs" />
     <Compile Include="Options.fs" />
     <Compile Include="Rect.fs" />
-    <Compile Include="Canvas.fs" />
+    <Compile Include="Circle.fs" />
+    <Compile Include="Layer.fs" />
+    <Compile Include="Stage.fs" />
     <Compile Include="Konva.fs" />
   </ItemGroup>
   <PropertyGroup>

@@ -7,9 +7,10 @@ open Fable.Core
 type Event = Browser.Types.Event
 
 [<Erase>]
-type Konva =
+type layer =
 
-    static member inline canvas(props: ReactElement seq) =
-        Interop.reactApi.createElement (Interop.canvas, createObj !!props)
     static member inline rect(props: IRectProp seq) =
         Interop.reactApi.createElement (Interop.rect, createObj !!props)
+    static member inline key(key: string) : IKonvaProp = Interop.mkKonvaProp "key" key
+    static member inline children(children: ReactElement list) =
+        unbox<ILayerProp> (prop.children children)

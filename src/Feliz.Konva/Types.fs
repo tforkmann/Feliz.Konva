@@ -4,7 +4,10 @@ type IKonvaProp =
     interface
     end
 
-type ICanvasProp =
+type IStageProp =
+    interface
+    end
+type ILayerProp =
     interface
     end
 

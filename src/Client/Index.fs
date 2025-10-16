@@ -4,7 +4,6 @@ open Elmish
 open Feliz
 open Feliz.Konva
 open System
-open Fable.I18Next
 open Fable.Core.JsInterop
 
 type Model = { Date: DateTime }
@@ -35,12 +34,13 @@ let private renderWithClearButton: obj * obj -> ReactElement =
                     let target = ev.target :?> Browser.Types.HTMLElement
                     // the button’s previous sibling is the input
                     let input = target.previousElementSibling :?> Browser.Types.HTMLElement
+
                     if not (isNullOrUndefined input) then
                         let fp = input?_flatpickr
+
                         if not (isNull fp) then
-                            fp?clear()
-                            fp?close()
-                )
+                            fp?clear ()
+                            fp?close ())
             ]
         ]
 
@@ -48,25 +48,15 @@ let view (model: Model) (dispatch: Msg -> unit) =
     // let format = "d.m.Y H:i"
     let format = "d.m.Y"
 
-    Html.div [
-        prop.style [ style.height 600; style.width 600 ]
-        prop.children [
-            Konva.canvas [
-                Konva.rect [
-                    rect.x 100
-                    rect.y 100
-                    rect.width 200
-                    rect.height 200
-                    rect.color "red"
-                    rect.rx 20
-                    rect.ry 20
-
+    Konva.stage [
+        stage.width 500
+        stage.height 500
+        stage.children [
+            Konva.layer [
+                layer.children [
+                    Konva.rect [ rect.x 100; rect.y 100; rect.width 200; rect.height 200; rect.fill "red" ]
+                    Konva.circle [ circle.x 100; circle.y 100; circle.radius 50; circle.fill "green" ]
                 ]
             ]
-            // Circle.circle [
-            //     Circle.
-            // ]
         ]
-
-
     ]
