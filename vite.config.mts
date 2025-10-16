@@ -12,7 +12,7 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview  }) => {
     return {
         plugins: [react(), tailwindcss()],
         root: "./src/Client",
-        base: isDev ? undefined : '/Feliz.ReactTooltip/',
+        base: isDev ? undefined : '/Feliz.Konva/',
         build: {
             outDir: "../../publish/docs",
             emptyOutDir: true,
