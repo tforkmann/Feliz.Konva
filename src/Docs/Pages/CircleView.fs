@@ -1,7 +1,6 @@
 module Docs.Pages.CircleView
 
 open Feliz
-open Feliz.Bulma
 open Feliz.Konva
 open Docs.SharedView
 open System
@@ -56,15 +55,21 @@ let Circle (state: State) (dispatch: Msg -> unit) =
 
 let code =
     """
-    FlatPickr.flatPickr [
-        flatPickr.disabled false
-        flatPickr.value (Some now)
-        flatPickr.options [
-            option.allowInput true
-            option.clearable true
+    Konva.stage [
+        stage.width 600
+        stage.height 600
+        stage.children [
+            Konva.layer [
+                layer.children [
+                    Konva.circle [
+                        circle.x 300
+                        circle.y 300
+                        circle.radius 100
+                        circle.fill "red"
+                    ]
+                ]
+            ]
         ]
-        flatPickr.themeColors(primary="#D50037", secondary="#333F4C")
-
     ]
     """
 
@@ -74,8 +79,6 @@ let title = Html.text "Circle"
 let CircleView () =
     let state,dispatch = React.useElmish(init, update, [||])
     Html.div [
-        Bulma.content [
-            codedView title code (Circle state dispatch)
-        ]
+        codedView title code (Circle state dispatch)
         fixDocsView "Circle" false
     ]

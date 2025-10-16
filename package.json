@@ -28,6 +28,7 @@
         "cssnano": "^7.0.6",
         "autoprefixer": "^10.4.2",
         "react-highlight": "0.15.0",
+        "use-sync-external-store": "^1.6.0",
         "sass": "^1.69.5",
         "selfsigned": "^2.0.1",
         "highlight.js": "^11.11.1",
