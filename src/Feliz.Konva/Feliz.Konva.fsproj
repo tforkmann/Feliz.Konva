@@ -16,7 +16,7 @@
   </ItemGroup>
   <PropertyGroup>
     <NpmDependencies>
-      <NpmPackage Name="@shopify/react-native-skia" Version="gt 2.0.0 lt 2.9.9" ResolutionStrategy="Max" DevDependency="true" />
+      <NpmPackage Name="react-konva" Version="gt 2.0.0 lt 2.9.9" ResolutionStrategy="Max" DevDependency="true" />
     </NpmDependencies>
   </PropertyGroup>
   <ItemGroup>

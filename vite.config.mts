@@ -32,7 +32,7 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview  }) => {
         },
         resolve: { alias: {} },
         optimizeDeps: {
-        include: ["@shopify/react-native-skia"]
+        include: ["react-konva"]
         },
         assetsInclude: ["**/*.wasm"],
         server: {
