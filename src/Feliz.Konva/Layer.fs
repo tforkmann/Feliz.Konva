@@ -4,8 +4,6 @@ open Feliz
 open Fable.Core.JsInterop
 open Fable.Core
 
-type Event = Browser.Types.Event
-
 [<Erase>]
 type layer =
 
