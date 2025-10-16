@@ -1,12 +1,12 @@
 # Feliz Binding for [react-flatpickr](https://github.com/haoxins/react-flatpickr)
 
-[![Feliz.Skia on Nuget](https://buildstats.info/nuget/Feliz.Skia)](https://www.nuget.org/packages/Feliz.Skia/)
-[![Docs](https://github.com/tforkmann/Feliz.Skia/actions/workflows/Docs.yml/badge.svg)](https://github.com/tforkmann/Feliz.Skia/actions/workflows/Docs.yml)
+[![Feliz.Konva on Nuget](https://buildstats.info/nuget/Feliz.Konva)](https://www.nuget.org/packages/Feliz.Konva/)
+[![Docs](https://github.com/tforkmann/Feliz.Konva/actions/workflows/Docs.yml/badge.svg)](https://github.com/tforkmann/Feliz.Konva/actions/workflows/Docs.yml)
 
 ## Installation
 Install the nuget package
 ```
-dotnet paket add Feliz.Skia
+dotnet paket add Feliz.Konva
 ```
 
 and install the npm package
@@ -17,7 +17,7 @@ npm install --save react-flatpickr
 
 or use Femto:
 ```
-femto install Feliz.Skia
+femto install Feliz.Konva
 ```
 
 ## Start test app
@@ -43,4 +43,4 @@ let FlatPickr date =
 
 ```
 
-You can find more examples [here](https://tforkmann.github.io/Feliz.Skia/)
+You can find more examples [here](https://tforkmann.github.io/Feliz.Konva/)

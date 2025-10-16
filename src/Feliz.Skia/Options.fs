@@ -1,4 +1,4 @@
-namespace Feliz.Skia
+namespace Feliz.Konva
 
 open System
 open Fable.Core

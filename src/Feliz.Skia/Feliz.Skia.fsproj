@@ -12,7 +12,7 @@
     <Compile Include="Options.fs" />
     <Compile Include="Rect.fs" />
     <Compile Include="Canvas.fs" />
-    <Compile Include="Skia.fs" />
+    <Compile Include="Konva.fs" />
   </ItemGroup>
   <PropertyGroup>
     <NpmDependencies>

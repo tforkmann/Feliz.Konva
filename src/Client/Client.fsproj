@@ -11,7 +11,7 @@
         <Compile Include="App.fs" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\Feliz.Skia\Feliz.Skia.fsproj" />
+        <ProjectReference Include="..\Feliz.Konva\Feliz.Konva.fsproj" />
     </ItemGroup>
     <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>

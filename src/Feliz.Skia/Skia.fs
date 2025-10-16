@@ -1,4 +1,4 @@
-namespace Feliz.Skia
+namespace Feliz.Konva
 
 open Feliz
 open Fable.Core.JsInterop
@@ -7,7 +7,7 @@ open Fable.Core
 type Event = Browser.Types.Event
 
 [<Erase>]
-type Skia =
+type Konva =
 
     static member inline canvas(props: ReactElement seq) =
         Interop.reactApi.createElement (Interop.canvas, createObj !!props)

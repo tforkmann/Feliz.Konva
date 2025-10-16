@@ -2,7 +2,7 @@ module Index
 
 open Elmish
 open Feliz
-open Feliz.Skia
+open Feliz.Konva
 open System
 open Fable.I18Next
 open Fable.Core.JsInterop
@@ -51,8 +51,8 @@ let view (model: Model) (dispatch: Msg -> unit) =
     Html.div [
         prop.style [ style.height 600; style.width 600 ]
         prop.children [
-            Skia.canvas [
-                Skia.rect [
+            Konva.canvas [
+                Konva.rect [
                     rect.x 100
                     rect.y 100
                     rect.width 200

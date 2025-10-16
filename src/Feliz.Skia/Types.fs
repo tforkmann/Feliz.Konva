@@ -1,6 +1,6 @@
-namespace Feliz.Skia
+namespace Feliz.Konva
 
-type ISkiaProp =
+type IKonvaProp =
     interface
     end
 
@@ -15,7 +15,7 @@ type IRectProp =
 type ICircleProp =
     interface
     end
-type ISkiaStylesProp =
+type IKonvaStylesProp =
     interface
     end
 
