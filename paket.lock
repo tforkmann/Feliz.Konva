@@ -191,6 +191,8 @@ NUGET
     Feliz.DaisyUI (5.2)
       Feliz (>= 2.9)
       FSharp.Core (>= 4.7.2)
+    Feliz.Konva (0.0.3)
+      Feliz (>= 2.9)
     Feliz.Markdown (2.4)
       Feliz (>= 2.4)
       FSharp.Core (>= 4.7.2)

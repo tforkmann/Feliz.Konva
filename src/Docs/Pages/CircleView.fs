@@ -1,4 +1,4 @@
-module Docs.Pages.FlatPickrView
+module Docs.Pages.CircleView
 
 open Feliz
 open Feliz.Bulma
@@ -28,21 +28,27 @@ let update msg (model: State) =
     | SetStartDate date -> { model with StartDate = date }, Cmd.none
     | SetEndDate date -> { model with EndDate = date }, Cmd.none
 
-let FlatPickr (state: State) (dispatch: Msg -> unit) =
+let Circle (state: State) (dispatch: Msg -> unit) =
     let now = DateTime.Now
 
     Html.div [
         prop.style [ style.height 600; style.width 600 ]
         prop.children [
-            FlatPickr.flatPickr [
-            flatPickr.disabled false
-            flatPickr.value (Some now)
-            flatPickr.options [
-                option.allowInput true
-                option.clearable true
-            ]
-            flatPickr.themeColors(primary="#D50037", secondary="#333F4C")
-
+            Konva.stage [
+                stage.width 600
+                stage.height 600
+                stage.children [
+                    Konva.layer [
+                        layer.children [
+                            Konva.circle [
+                                circle.x 300
+                                circle.y 300
+                                circle.radius 100
+                                circle.fill "red"
+                            ]
+                        ]
+                    ]
+                ]
         ]
         ]
     ]
@@ -62,14 +68,14 @@ let code =
     ]
     """
 
-let title = Html.text "FlatPickr"
+let title = Html.text "Circle"
 
 [<ReactComponent>]
-let FlatPickrView () =
+let CircleView () =
     let state,dispatch = React.useElmish(init, update, [||])
     Html.div [
         Bulma.content [
-            codedView title code (FlatPickr state dispatch)
+            codedView title code (Circle state dispatch)
         ]
-        fixDocsView "FlatPickr" false
+        fixDocsView "Circle" false
     ]
