@@ -44,6 +44,152 @@ let private renderWithClearButton: obj * obj -> ReactElement =
             ]
         ]
 
+[<ReactComponent>]
+let KonvaImageFromUrl (url: string, x: float, y: float, w: float, h: float) =
+    try
+        let imageElement, setImage = React.useState None
+
+        React.useEffect((fun () ->
+                printfn "Effect triggered for loading image from %s" url
+                let img = Browser.Dom.document.createElement("img") :?> Browser.Types.HTMLImageElement
+                img.crossOrigin <- "Anonymous"
+                img.src <- url
+                img.onload <- fun _ ->
+                    printfn "Image loaded from %s" url
+                    setImage (Some img)
+                None),
+            [| box url |]
+        )
+
+
+        match imageElement with
+        | None ->
+            printfn "Loading image from %s" url
+            Html.none
+        | Some img ->
+            printfn "Rendering image from %s" url
+            Konva.image [
+                image.x x
+                image.y y
+                image.width w
+                image.height h
+                image.image img
+            ]
+    with ex ->
+        printfn "Error loading image from %s: %s" url ex.Message
+        Html.none
+
+let arcPath =
+    "M100,50 A50,50 0 0,1 150,100" // simple quarter arc
+
+let makeArc (cx: float, cy: float, radius: float, startDeg: float, sweepDeg: float) =
+    let toRad deg = deg * System.Math.PI / 180.0
+    let startR = toRad startDeg
+    let endR = toRad (startDeg + sweepDeg)
+    let x1 = cx + radius * cos startR
+    let y1 = cy + radius * sin startR
+    let x2 = cx + radius * cos endR
+    let y2 = cy + radius * sin endR
+    let largeArc = if sweepDeg > 180.0 then 1 else 0
+    let sweep = 1
+    $"M{x1},{y1} A{radius},{radius} 0 {largeArc},{sweep} {x2},{y2}"
+
+let connectorArc (cx, cy, radius, startDeg, sweepDeg, color) =
+    Konva.path [
+        path.data (makeArc (cx, cy, radius, startDeg, sweepDeg))
+        path.stroke color
+        path.strokeWidth 8
+        path.lineCap "round"
+    ]
+
+let connectors = 6
+let gap = 10.0
+let sweep = (360.0 / float connectors) - gap
+let r = 80.0
+let cx, cy = 300.0, 100.0
+
+let gauge =
+    [ for i in 0 .. connectors - 1 ->
+        let start = -90.0 + float i * (sweep + gap)
+        let color =
+            match i with
+            | 0 | 1 -> "#22c55e" // available
+            | 2 -> "#eab308" // unavailable
+            | _ -> "#ef4444" // disabled
+        connectorArc (cx, cy, r, start, sweep, color)
+    ]
+
+type ChargerGaugeProps =
+    { Connectors: int
+      Available: int
+      Disabled: int
+      CenterX: float
+      CenterY: float
+      Radius: float
+      PowerLabel: string option
+      PriceLabel: string option
+      SvgUrl: string option }
+[<ReactComponent>]
+let ChargerGauge
+    (props: ChargerGaugeProps) =
+    let unavailable = connectors - props.Available - props.Disabled
+    let gap = 10.0
+    let sweep = (360.0 / float connectors) - gap
+
+    let colorFor i =
+        if i < props.Available then "#22c55e"
+        elif i < props.Available + unavailable then "#eab308"
+        else "#ef4444"
+
+    let arcs =
+        [ for i in 0 .. connectors - 1 ->
+            let start = -90.0 + float i * (sweep + gap)
+            Konva.path [
+                path.data (makeArc (props.CenterX, props.CenterY, props.Radius, start, sweep))
+                path.stroke (colorFor i)
+                path.strokeWidth 8
+                path.lineCap "round"
+            ] ]
+
+    Konva.layer [
+        layer.children [
+            // gauge arcs
+            yield! arcs
+
+            // center SVG
+            match props.SvgUrl with
+            | Some url -> yield KonvaImageFromUrl (url, props.CenterX - 25.0, props.CenterY - 25.0, 50.0, 50.0)
+            | None -> ()
+
+            // power label
+            match props.PowerLabel with
+            | Some p ->
+                yield
+                    Konva.text [
+                        text.x (props.CenterX - 30.0)
+                        text.y (props.CenterY + props.Radius + 10.0)
+                        text.text p
+                        text.fontSize 16
+                        text.fill "#000"
+                        text.fontFamily "Calibri"
+                    ]
+            | None -> ()
+
+            // price label
+            match props.PriceLabel with
+            | Some pr ->
+                yield
+                    Konva.text [
+                        text.x (props.CenterX - 30.0)
+                        text.y (props.CenterY + props.Radius + 30.0)
+                        text.text pr
+                        text.fontSize 14
+                        text.fill "#666"
+                        text.fontFamily "Calibri"
+                    ]
+            | None -> ()
+        ]
+    ]
 let view (model: Model) (dispatch: Msg -> unit) =
     // let format = "d.m.Y H:i"
     let format = "d.m.Y"
@@ -52,11 +198,16 @@ let view (model: Model) (dispatch: Msg -> unit) =
         stage.width 500
         stage.height 500
         stage.children [
-            Konva.layer [
-                layer.children [
-                    Konva.rect [ rect.x 100; rect.y 100; rect.width 200; rect.height 200; rect.fill "red" ]
-                    Konva.circle [ circle.x 100; circle.y 100; circle.radius 50; circle.fill "green" ]
-                ]
-            ]
+            ChargerGauge
+                {   Connectors = 6
+                    Available = 3
+                    Disabled = 2
+                    CenterX = 250.0
+                    CenterY = 150.0
+                    Radius = 80.0
+                    PowerLabel = Some "50 kW"
+                    PriceLabel = Some "0.35 $/kWh"
+                    SvgUrl = Some "https://konvajs.org/assets/yoda.jpg" }
+            // ChargerGauge(6, 1, 1, 250.0, 350.0, 80.0, Some "150 kW", Some "0.45 $/kWh", None)
         ]
     ]

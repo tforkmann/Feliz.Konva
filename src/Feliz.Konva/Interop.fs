@@ -10,6 +10,9 @@ module Interop =
     let inline mkLayerProp (key: string) (value: obj) : IStageProp = unbox (key, value)
     let inline mkRectProp (key: string) (value: obj) : IRectProp = unbox (key, value)
     let inline mkCircleProp (key: string) (value: obj) : ICircleProp = unbox (key, value)
+    let inline mkTextProp (key: string) (value: obj) : ITextProp = unbox (key, value)
+    let inline mkImageProp (key: string) (value: obj) : IImageProp = unbox (key, value)
+    let inline mkPathProp (key: string) (value: obj) : IPathProp = unbox (key, value)
     let inline mkStylesProp (key: string) (value: obj) : IKonvaStylesProp = unbox (key, value)
     let inline mkOptionsProp (key: string) (value: obj) : IOptionsProp = unbox (key, value)
 
@@ -19,3 +22,5 @@ module Interop =
     let circle: obj = import "Circle" "react-konva"
     let text: obj = import "Text" "react-konva"
     let rect: obj = import "Rect" "react-konva"
+    let image: obj = import "Image" "react-konva"
+    let path: obj = import "Path" "react-konva"

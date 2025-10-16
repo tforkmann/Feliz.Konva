@@ -13,6 +13,8 @@
     <Compile Include="Rect.fs" />
     <Compile Include="Circle.fs" />
     <Compile Include="Text.fs" />
+    <Compile Include="Image.fs" />
+    <Compile Include="Path.fs" />
     <Compile Include="Layer.fs" />
     <Compile Include="Stage.fs" />
     <Compile Include="Konva.fs" />

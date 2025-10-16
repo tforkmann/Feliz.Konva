@@ -21,6 +21,12 @@ type ICircleProp =
 type ITextProp =
     interface
     end
+type IImageProp =
+    interface
+    end
+type IPathProp =
+    interface
+    end
 
 type IKonvaStylesProp =
     interface
