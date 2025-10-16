@@ -18,6 +18,10 @@ type IRectProp =
 type ICircleProp =
     interface
     end
+type ITextProp =
+    interface
+    end
+
 type IKonvaStylesProp =
     interface
     end

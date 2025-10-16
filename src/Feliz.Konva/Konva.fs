@@ -21,6 +21,8 @@ type Konva =
 
     static member inline circle(props: ICircleProp seq) =
         Interop.reactApi.createElement (Interop.circle, createObj !!props)
+    static member inline text(props: ICircleProp seq) =
+        Interop.reactApi.createElement (Interop.text, createObj !!props)
 
     static member inline key(key: string) : IKonvaProp = Interop.mkKonvaProp "key" key
 

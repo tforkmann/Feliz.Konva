@@ -17,4 +17,5 @@ module Interop =
     let stage: obj = import "Stage" "react-konva"
     let layer: obj = import "Layer" "react-konva"
     let circle: obj = import "Circle" "react-konva"
+    let text: obj = import "Text" "react-konva"
     let rect: obj = import "Rect" "react-konva"
