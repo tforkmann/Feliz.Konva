@@ -1,4 +1,4 @@
-# Feliz Binding for [react-flatpickr](https://github.com/haoxins/react-flatpickr)
+# Feliz Binding for [react-konva](https://konvajs.org/docs/react/index.html)
 
 [![Feliz.Konva on Nuget](https://buildstats.info/nuget/Feliz.Konva)](https://www.nuget.org/packages/Feliz.Konva/)
 [![Docs](https://github.com/tforkmann/Feliz.Konva/actions/workflows/Docs.yml/badge.svg)](https://github.com/tforkmann/Feliz.Konva/actions/workflows/Docs.yml)
@@ -12,7 +12,7 @@ dotnet paket add Feliz.Konva
 and install the npm package
 
 ```
-npm install --save react-flatpickr
+npm install --save react-konva
 ```
 
 or use Femto:
@@ -27,20 +27,42 @@ femto install Feliz.Konva
 dotnet run
 ```
 
-## Example FlatPickr usage
-Here is an example FlatPickr
+## Example Feliz.Konva usage
+Here is an example Feliz.Konva
 ```fs
 [<ReactComponent>]
-let FlatPickr date =
-     FlatPickr.flatPickr [
-        flatPickr.disabled false
-        flatPickr.value date
-        flatPickr.options [
-            option.allowInput true
-            option.clearable true
+let Konva () =
+    Html.div [
+        prop.style [ style.height 500; style.width 500 ]
+        prop.children [
+            Konva.stage [
+                stage.width 500
+                stage.height 500
+                stage.children [
+                    Konva.layer [
+                        layer.children [
+                            Konva.circle [
+                                circle.x 200
+                                circle.y 200
+                                circle.radius 70
+                                circle.fill "red"
+                                circle.stroke "black"
+                                circle.strokeWidth 4
+                            ]
+                            Konva.text [
+                                text.x 150
+                                text.y 180
+                                text.text "Hello, Konva!"
+                                text.fontSize 30
+                                text.fontFamily "Calibri"
+                                text.fill "green"
+                            ]
+                        ]
+                    ]
+                ]
+            ]
         ]
     ]
-
 ```
 
 You can find more examples [here](https://tforkmann.github.io/Feliz.Konva/)

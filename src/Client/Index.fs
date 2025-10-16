@@ -129,12 +129,13 @@ type ChargerGaugeProps =
       PowerLabel: string option
       PriceLabel: string option
       SvgUrl: string option }
+
 [<ReactComponent>]
 let ChargerGauge
     (props: ChargerGaugeProps) =
     let unavailable = connectors - props.Available - props.Disabled
     let gap = 10.0
-    let sweep = (360.0 / float connectors) - gap
+    let sweep = 360.0 / float connectors - gap
 
     let colorFor i =
         if i < props.Available then "#22c55e"
@@ -208,6 +209,5 @@ let view (model: Model) (dispatch: Msg -> unit) =
                     PowerLabel = Some "50 kW"
                     PriceLabel = Some "0.35 $/kWh"
                     SvgUrl = Some "https://konvajs.org/assets/yoda.jpg" }
-            // ChargerGauge(6, 1, 1, 250.0, 350.0, 80.0, Some "150 kW", Some "0.45 $/kWh", None)
         ]
     ]
