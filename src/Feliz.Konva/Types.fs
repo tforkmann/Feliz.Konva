@@ -1,5 +1,7 @@
 namespace Feliz.Konva
 
+open Fable.Core
+
 type IKonvaProp =
     interface
     end
@@ -27,6 +29,9 @@ type IImageProp =
 type IPathProp =
     interface
     end
+type ITweenProp =
+    interface
+    end
 
 type IKonvaStylesProp =
     interface
@@ -48,3 +53,11 @@ type DateOption =
         | DateTimeOffset dto -> dto :> obj
         | String s -> s :> obj
         | Number n -> n :> obj
+
+[<Erase>]
+type ITween =
+    abstract member play: unit -> unit
+    abstract member reverse: unit -> unit
+    abstract member pause: unit -> unit
+    abstract member finish: unit -> unit
+    abstract member destroy: unit -> unit

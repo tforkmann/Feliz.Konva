@@ -1,7 +1,7 @@
 namespace Feliz.Konva
 
 open Fable.Core
-
+open Fable.React
 [<Erase>]
 type path =
     static member inline data(v: string) : IPathProp = Interop.mkPathProp "data" v
@@ -14,3 +14,4 @@ type path =
     static member inline rotation(v: float) : IPathProp = Interop.mkPathProp "rotation" v
     static member inline x(v: float) : IPathProp = Interop.mkPathProp "x" v
     static member inline y(v: float) : IPathProp = Interop.mkPathProp "y" v
+    static member inline ref(v: IRefValue<'a>) : IPathProp = Interop.mkPathProp "ref" v

@@ -27,6 +27,12 @@ type Konva =
         Interop.reactApi.createElement (Interop.image, createObj !!props)
     static member inline path(props: IPathProp seq) =
         Interop.reactApi.createElement (Interop.path, createObj !!props)
+    static member inline createTween(props: ITweenProp seq) : ITween =
+        let konva: obj = importDefault "konva"
+        let ctor =
+            if not (isNullOrUndefined (konva?Tween)) then konva?Tween
+            else konva?``default``?Tween
+        createNew ctor (createObj !!props) |> unbox<ITween>
 
     static member inline key(key: string) : IKonvaProp = Interop.mkKonvaProp "key" key
 
