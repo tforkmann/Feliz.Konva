@@ -228,16 +228,17 @@ let view (model: Model) (dispatch: Msg -> unit) =
         stage.width 500
         stage.height 500
         stage.children [
-            ChargerGauge {
-                Connectors = 6
-                Available = 3
-                Disabled = 2
-                CenterX = 250.0
-                CenterY = 150.0
-                Radius = 80.0
-                PowerLabel = Some "50 kW"
-                PriceLabel = Some "0.35 $/kWh"
-                SvgUrl = Some "https://konvajs.org/assets/yoda.jpg"
-            }
+            for i in 1 .. 3 do
+                yield ChargerGauge {
+                    Connectors = 6
+                    Available = 3
+                    Disabled = 2
+                    CenterX = 250.0 * float i / 4.0
+                    CenterY = 150.0
+                    Radius = 80.0
+                    PowerLabel = Some "50 kW"
+                    PriceLabel = Some "0.35 $/kWh"
+                    SvgUrl = Some "https://konvajs.org/assets/yoda.jpg"
+                }
         ]
     ]
