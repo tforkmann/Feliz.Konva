@@ -17,10 +17,10 @@ module Interop =
     let inline mkStylesProp (key: string) (value: obj) : IKonvaStylesProp = unbox (key, value)
     let inline mkOptionsProp (key: string) (value: obj) : IOptionsProp = unbox (key, value)
 
-    let stage: obj = import "Stage" "react-konva"
-    let layer: obj = import "Layer" "react-konva"
-    let circle: obj = import "Circle" "react-konva"
-    let text: obj = import "Text" "react-konva"
-    let rect: obj = import "Rect" "react-konva"
-    let image: obj = import "Image" "react-konva"
-    let path: obj = import "Path" "react-konva"
+    let Stage: obj = import "Stage" "react-konva"
+    let Layer: obj = import "Layer" "react-konva"
+    let Circle: obj = import "Circle" "react-konva"
+    let Text: obj = import "Text" "react-konva"
+    let Rect: obj = import "Rect" "react-konva"
+    let Image: obj = import "Image" "react-konva"
+    let Path: obj = import "Path" "react-konva"
