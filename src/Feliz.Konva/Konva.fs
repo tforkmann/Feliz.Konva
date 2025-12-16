@@ -10,23 +10,23 @@ type Event = Browser.Types.Event
 type Konva =
 
     static member inline stage(props: IStageProp seq) =
-        Interop.reactApi.createElement (Interop.Stage, createObj !!props)
+        ReactLegacy.createElement (Interop.Stage, createObj !!props)
     static member inline children(children: ReactElement list) =
         unbox<IKonvaProp> (prop.children children)
 
     static member inline layer(props: ILayerProp seq) =
-        Interop.reactApi.createElement (Interop.Layer, createObj !!props)
+        ReactLegacy.createElement (Interop.Layer, createObj !!props)
     static member inline rect(props: IRectProp seq) =
-        Interop.reactApi.createElement (Interop.Rect, createObj !!props)
+        ReactLegacy.createElement (Interop.Rect, createObj !!props)
 
     static member inline circle(props: ICircleProp seq) =
-        Interop.reactApi.createElement (Interop.Circle, createObj !!props)
+        ReactLegacy.createElement (Interop.Circle, createObj !!props)
     static member inline text(props: ITextProp seq) =
-        Interop.reactApi.createElement (Interop.Text, createObj !!props)
+        ReactLegacy.createElement (Interop.Text, createObj !!props)
     static member inline image(props: IImageProp seq) =
-        Interop.reactApi.createElement (Interop.Image, createObj !!props)
+        ReactLegacy.createElement (Interop.Image, createObj !!props)
     static member inline path(props: IPathProp seq) =
-        Interop.reactApi.createElement (Interop.Path, createObj !!props)
+        ReactLegacy.createElement (Interop.Path, createObj !!props)
     static member inline createTween(props: ITweenProp seq) : ITween =
         let konva: obj = importDefault "konva"
         let ctor =
