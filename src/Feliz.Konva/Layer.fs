@@ -8,7 +8,7 @@ open Fable.Core
 type layer =
 
     static member inline rect(props: IRectProp seq) =
-        Interop.reactApi.createElement (Interop.Rect, createObj !!props)
+        ReactLegacy.createElement (Interop.Rect, createObj !!props)
     static member inline key(key: string) : IKonvaProp = Interop.mkKonvaProp "key" key
     static member inline children(children: ReactElement list) =
         unbox<ILayerProp> (prop.children children)
